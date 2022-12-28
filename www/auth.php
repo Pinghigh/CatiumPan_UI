@@ -22,7 +22,10 @@ function auth_user_name_password_md5($user_name, $user_password_md5)
 }
 
 function is_logined()
-{
+{   
+    if (empty($_COOKIE)) {
+        return false;
+    }
     $user_uuid = $_COOKIE['uuid'];
     $users = exec_sql("SELECT * FROM `CatiumPan`.`users` WHERE user_uuid = '$user_uuid'; ");
     return !empty($users);

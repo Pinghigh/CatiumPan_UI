@@ -6,13 +6,13 @@ if (!empty($_POST)) {
     $user_password = $_POST['user_password'];
     $user_password_md5 = md5($user_password);
     if (!auth_user_name_password_md5($user_name, $user_password_md5)) {
-?>
-        <p>failed</p>
+        ?>
         <script type="text/javascript">
             alert('login unsucessful.');
+            location.replace(location.href)
         </script>
     <?php
-    }else{
+    } else {
         header("Location: /");
     }
 } else {
@@ -22,16 +22,36 @@ if (!empty($_POST)) {
 
     <head>
         <title>CatiumPan - Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- fluent by YidaozhanYa -->
+        <link rel="stylesheet" href="./css/fluent-constants.css" />
+        <link rel="stylesheet" href="./css/fluent-button.css" />
+        <link rel="stylesheet" href="./css/fluent-textarea.css" />
+        <!-- default -->
+        <link rel="stylesheet" href="./css/default.css" />
     </head>
 
-    <body>
-        <div style="background-color:gray;margin:0 auto;width:30%;">
-            <p>登录</p>
-            <a href="/register.php">注册</a>
-            <form action="login.php" method="post">
-                用户名: <input type="text" name="user_name"><br>
-                密码: <input type="password" name="user_password"><br>
-                <input type="submit" value="提交">
+    <body class="bg">
+        <div class="card">
+            <form style="margin:auto auto; display: table; width: auto;" action="login.php" method="post">
+                <h1>CatiumPan</h1><br>
+
+                <!-- input -->
+                <span class="fluent-textarea-outer" style="margin:auto auto;">
+                    <input required="required" type="text" class="fluent-textarea" placeholder="用户名" name="user_name">
+                </span> <br><br>
+                <span class="fluent-textarea-outer" style="margin:auto auto;">
+                    <input required="required" type="password" class="fluent-textarea" placeholder="密码"
+                        name="user_password">
+                </span> <br><br>
+
+                <!-- 2 buttons -->
+                <div style="margin: auto auto; display: flex; flex-direction: row; justify-content: space-between">
+                    <input type="submit" class="fluent-button fluent-button-primary" style="float: left; margin: 0 auto"
+                        value="登录">
+                    <input type="button" onclick="self.location=document.referrer;" style="float: right; margin: 0 auto"
+                        class="fluent-button fluent-button-secondary" value="返回">
+                </div>
             </form>
         </div>
     </body>
