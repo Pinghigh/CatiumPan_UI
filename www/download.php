@@ -1,8 +1,12 @@
 <?php
 include('db.php');
+$page404 = "/404.html";
 if ($_GET['file_id']) {
     $file_id = $_GET['file_id'];
     $arr = exec_sql("SELECT * FROM files WHERE file_id = '$file_id'");
+    if (empty($_COOKIE)) {
+        return false;
+    }
     $user_uuid = $_COOKIE['uuid'];
     if (count($arr) > 0) {
         $row = $arr[0];
@@ -25,8 +29,10 @@ if ($_GET['file_id']) {
             unlink('res/' . $file_res);
         }
     } else {
-        header('HTTP/1.1 404 NOT FOUND');
+        header("Location: $page404");
+        exit();
     }
 } else {
-    header('HTTP/1.1 404 NOT FOUND');
+    header("Location: $page404");
+    exit();
 }

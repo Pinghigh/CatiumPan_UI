@@ -57,9 +57,9 @@ if (!empty($_POST)) {
     </head>
 
     <body class="bg">
-        <div class="card" style="margin:10% auto; width:15%;">
+        <div class="card">
             <form style="margin:auto auto; display: table; width: auto;" action="register.php" method="post">
-                <h1 style="margin:auto 8%; font-family: Righteous">CatiumPan </h1><br>
+                <h1>CatiumPan</h1><br>
 
                 <!-- input -->
                 <span class="fluent-textarea-outer" style="margin:auto auto;">
@@ -75,7 +75,7 @@ if (!empty($_POST)) {
                 <!-- buttons -->
                 <div style="margin: auto auto; display: flex; flex-direction: row; justify-content: space-between">
                     <input type="submit" class="fluent-button fluent-button-primary" style="margin: 0 auto" value="注册">
-                    <input type="button" onclick="window.location='/login.php'" style="float: right; margin: 0 auto"
+                    <input type="button" onclick="self.location=document.referrer;" style="float: right; margin: 0 auto"
                         class="fluent-button fluent-button-secondary" value="返回">
                 </div>
             </form>
