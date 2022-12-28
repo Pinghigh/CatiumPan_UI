@@ -4,8 +4,8 @@
 function exec_sql($sql)
 {
     $dbtype = "mysql";
-    $username = "web";
-    $password = "web";
+    $username = "user";
+    $password = "password";
     $dbname = "CatiumPan";
     try {
         $conn = new PDO("$dbtype:host=localhost;dbname=$dbname", $username, $password);

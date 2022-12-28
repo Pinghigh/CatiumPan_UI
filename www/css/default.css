@@ -1,0 +1,40 @@
+.card {
+  backdrop-filter: saturate(50%) blur(8px);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  transition:all 0.5s;
+}
+.card:hover
+{
+	transform: scale(1.05);
+}
+.bg {
+  background: linear-gradient(
+      to bottom right,
+      #845ec2,
+      #2c73d2,
+      #0081cf,
+      #0089ba,
+      #008e9b,
+      #008f7a
+    )
+    no-repeat center center fixed;
+}
+@font-face {
+  font-family: Righteous;
+  src: url(../fonts/Righteous-Regular.ttf);
+}
+body { 
+    animation: fadeInAnimation ease 2s 
+} 
+  
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+     } 
+}

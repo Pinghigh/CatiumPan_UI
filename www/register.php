@@ -19,7 +19,7 @@ function register($user_name, $user_password, $user_email)
             setcookie('uuid', $user_uuid);
             header("Location: /");
         } else {
-?>
+            ?>
             <p>failed</p>
             <script type="text/javascript">
                 alert('register unsucessful: sql insertion failed.');
@@ -48,22 +48,41 @@ if (!empty($_POST)) {
 
     <head>
         <title>CatiumPan - Register</title>
+        <!-- fluent by YidaozhanYa -->
+        <link rel="stylesheet" href="./css/fluent-constants.css" />
+        <link rel="stylesheet" href="./css/fluent-button.css" />
+        <link rel="stylesheet" href="./css/fluent-textarea.css" />
+        <!-- default -->
+        <link rel="stylesheet" href="./css/default.css" />
     </head>
 
-    <body>
-        <div style="background-color:gray;margin:0 auto;width:30%;">
-            <p>注册</p>
-            <form action="register.php" method="post">
-                邮箱: <input type="text" name="user_email"><br>
-                用户名: <input type="text" name="user_name"><br>
-                密码: <input type="password" name="user_password"><br>
-                <input type="submit" value="提交">
+    <body class="bg">
+        <div class="card" style="margin:10% auto; width:15%;">
+            <form style="margin:auto auto; display: table; width: auto;" action="register.php" method="post">
+                <h1 style="margin:auto 8%; font-family: Righteous">CatiumPan </h1><br>
+
+                <!-- input -->
+                <span class="fluent-textarea-outer" style="margin:auto auto;">
+                    <input required="required" type="email" class="fluent-textarea" placeholder="邮箱" name="user_email">
+                </span><br><br>
+                <span class="fluent-textarea-outer" style="margin:auto auto;">
+                    <input required="required" type="text" class="fluent-textarea" placeholder="用户名" name="user_name">
+                </span><br><br>
+                <span class="fluent-textarea-outer" style="margin:auto auto;">
+                    <input required="required" type="password" class="fluent-textarea" placeholder="密码" name="user_password">
+                </span><br><br>
+
+                <!-- buttons -->
+                <div style="margin: auto auto; display: flex; flex-direction: row; justify-content: space-between">
+                    <input type="submit" class="fluent-button fluent-button-primary" style="margin: 0 auto" value="注册">
+                    <input type="button" onclick="window.location='/login.php'" style="float: right; margin: 0 auto"
+                        class="fluent-button fluent-button-secondary" value="返回">
+                </div>
             </form>
         </div>
     </body>
 
     </html>
-
 <?php
 }
 ?>
